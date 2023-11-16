@@ -1,0 +1,26 @@
+#!/bin/bash
+
+NOTESDIR=~/notes
+NOTESREC=$NOTESDIR/notes.rec
+case $1 in
+    add)
+NOTE=$(date +%s)
+NOTEFILE=$NOTESDIR/$NOTE.ms
+vim $NOTEFILE
+if [[ -f $NOTEFILE ]]; then
+    recins -f noteid -v $NOTE $NOTESREC
+    read -p "tags: " TAGLIST
+    for tag in $TAGLIST; do
+        recset -e "noteid= '$NOTE'" -f tag -a $tag $NOTESREC
+    done;
+fi;
+;;
+read)
+read -p "filtra per tag: " TAG ;
+SELNOTE=$(recsel -e "tag= '$TAG'"  -s noteid $NOTESREC | recfmt "{{noteid}}
+"|fzf --tac --preview="recsel -e \"noteid= {}\" $NOTESREC && cat $NOTESDIR/{}.ms") ;
+if [[ "a$SELNOTE" != "a" ]]; then
+   vim "$NOTESDIR/$SELNOTE.ms"
+fi;
+;;
+esac;
