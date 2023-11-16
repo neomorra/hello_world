@@ -1,0 +1,22 @@
+alias ls="ls --color"
+alias la="ls -A"
+alias ll="ls -lA"
+alias transmission="transmission-remote 192.168.1.110 --auth transmission:transmission"
+alias mutt=neomutt
+alias xfreerdp="xfreerdp /kbd:0x0410 /dynamic-resolution"
+cdl(){
+	cd $1 &&
+	ls -A
+}
+alias svi2021rdp="xfreerdp /u:amorassutto /sec:rdp /v:svi2021.magia3.it"
+alias groff="groff -Kutf8"
+#neatroff stuff
+NEATBASE=/opt/share/neatroff
+alias post="$NEATBASE/neatpost/post"
+alias ppdf="$NEATBASE/neatpost/pdf"
+alias eqn="$NEATBASE/neateqn/eqn"
+alias refr="$NEATBASE/neatrefer/refer"
+alias pic="$NEATBASE/troff/pic/pic"
+alias tbl="$NEATBASE/troff/tbl/tbl"
+alias soin="$NEATBASE/soin/soin"
+alias roff="$NEATBASE/neatroff/roff -F$NEATBASE -M$NEATBASE/tmac"

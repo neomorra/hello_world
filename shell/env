@@ -1,0 +1,9 @@
+# /usr/bin/sh
+export LESS="Dd+R-Du+g-"
+#export LESS="R"
+export PAGER='less'
+export EDITOR=vim
+export BROWSER=xdg-open
+export PATH=~/bin:/opt/node/bin:$PATH
+export LANG=it_IT.UTF-8
+export TNS_ADMIN='/mnt/c/oracle/instantclient_21_3/network/admin'
